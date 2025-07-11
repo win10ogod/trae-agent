@@ -61,7 +61,7 @@ class OpenAIClient(BaseLLMClient):
             ]
 
         api_call_input: ResponseInputParam = []
-        if reuse_history:
+        if reuse_history and self.message_history is not None:
             api_call_input.extend(self.message_history)
         api_call_input.extend(openai_messages)
 

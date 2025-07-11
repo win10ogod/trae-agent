@@ -30,7 +30,7 @@
 We strongly recommend using [uv](https://docs.astral.sh/uv/) to setup the project.
 
 ```bash
-git clone https://github.com/win10ogod/codynflux-agent.git
+git clone https://github.com/bytedance/codynflux-agent.git
 cd codynflux-agent
 make install
 ```

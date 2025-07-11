@@ -345,11 +345,12 @@ Be methodical, safe, and thorough in your execution approach."""
         else:
             fix_result = await self._implement_generic_fix(issue, reproduction_data)
         
-        steps.extend(fix_result.get("steps", []))
-        changes.extend(fix_result.get("changes", []))
+        if fix_result is not None:
+            steps.extend(fix_result.get("steps", []))
+            changes.extend(fix_result.get("changes", []))
         
         return {
-            "success": fix_result.get("success", False),
+            "success": fix_result.get("success", False) if fix_result is not None else False,
             "steps_completed": steps,
             "changes": changes,
             "fix_strategy": fix_strategy,

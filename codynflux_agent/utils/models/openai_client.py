@@ -45,7 +45,7 @@ def chat(
         ]
 
     api_call_input: ResponseInputParam = []
-    if reuse_history:
+    if reuse_history and message_history is not None:
         api_call_input.extend(message_history)
     api_call_input.extend(openai_messages)
 

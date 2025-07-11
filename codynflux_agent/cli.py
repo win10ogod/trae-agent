@@ -152,7 +152,7 @@ def run(
             "project_path": working_dir,
             "issue": task,
             "must_patch": "true" if must_patch else "false",
-            "patch_path": patch_path,
+            "patch_path": patch_path or "",
             "dtdd_mode": "true" if dtdd_mode else "false",
             "multi_agent_mode": "true" if multi_agent_mode else "false",
         }

@@ -69,9 +69,9 @@ class OllamaClient(BaseLLMClient):
             ]
 
         if reuse_history:
-            self.message_history = self.message_history + openai_messages
+            self.message_history = (self.message_history or []) + (openai_messages or [])
         else:
-            self.message_history = openai_messages
+            self.message_history = openai_messages or []
 
         response = None
         error_message = ""
@@ -127,6 +127,10 @@ class OllamaClient(BaseLLMClient):
                     for content_block in output_block.content:
                         if content_block.type == "output_text":
                             content += content_block.text
+        
+        # Handle case where response.message.content exists but no tool_calls
+        if hasattr(response.message, 'content') and response.message.content:
+            content = response.message.content
 
         if content != "":
             self.message_history.append(
@@ -148,7 +152,7 @@ class OllamaClient(BaseLLMClient):
             content=content,
             usage=usage,
             model=response.model,
-            finish_reason=response.done_reason,
+            finish_reason=getattr(response, 'done_reason', None) or 'stop',
             tool_calls=tool_calls if len(tool_calls) > 0 else None,
         )
 

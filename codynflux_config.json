@@ -1,13 +1,13 @@
 {
   "default_provider": "anthropic",
-  "max_steps": 20,
+  "max_steps": 5,
   "enable_lakeview": true,
   "model_providers": {
     "openai": {
       "api_key": "your_openai_api_key",
-      "base_url": "https://api.openai.com/v1",
-      "model": "gpt-4o",
-      "max_tokens": 128000,
+      "base_url": "http://192.168.1.102:1234/v1",
+      "model": "magidevs-24b",
+      "max_tokens": 40960,
       "temperature": 0.5,
       "top_p": 1,
       "max_retries": 10
