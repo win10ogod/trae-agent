@@ -1,6 +1,6 @@
-from ._run import TraeAgentSDK
+from ._run import CodynfluxAgentSDK
 
 __all__ = ["run"]
 
-_agent = TraeAgentSDK()
+_agent = CodynfluxAgentSDK()
 run = _agent.run

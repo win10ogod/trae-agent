@@ -7,8 +7,8 @@ import json
 import unittest
 from unittest.mock import mock_open, patch
 
-from trae_agent.tools.base import ToolCallArguments
-from trae_agent.tools.json_edit_tool import JSONEditTool
+from codynflux_agent.tools.base import ToolCallArguments
+from codynflux_agent.tools.json_edit_tool import JSONEditTool
 
 
 class TestJSONEditTool(unittest.IsolatedAsyncioTestCase):

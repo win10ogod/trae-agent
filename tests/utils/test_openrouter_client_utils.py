@@ -13,9 +13,9 @@ setting: to avoid
 import os
 import unittest
 
-from trae_agent.utils.config import ModelParameters
-from trae_agent.utils.llm_basics import LLMMessage
-from trae_agent.utils.openrouter_client import OpenRouterClient
+from codynflux_agent.utils.config import ModelParameters
+from codynflux_agent.utils.llm_basics import LLMMessage
+from codynflux_agent.utils.openrouter_client import OpenRouterClient
 
 TEST_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
 

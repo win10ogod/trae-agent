@@ -12,10 +12,10 @@ import os
 import unittest
 from unittest.mock import MagicMock, patch
 
-from trae_agent.tools.base import Tool, ToolCall, ToolResult
-from trae_agent.utils.config import ModelParameters
-from trae_agent.utils.google_client import GoogleClient
-from trae_agent.utils.llm_basics import LLMMessage
+from codynflux_agent.tools.base import Tool, ToolCall, ToolResult
+from codynflux_agent.utils.config import ModelParameters
+from codynflux_agent.utils.google_client import GoogleClient
+from codynflux_agent.utils.llm_basics import LLMMessage
 
 TEST_MODEL = "gemini-2.5-flash"
 

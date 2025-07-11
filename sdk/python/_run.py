@@ -1,6 +1,6 @@
 """
-Trae Agent SDK - Run Function
-Python SDK for executing tasks with Trae Agent programmatically.
+Codynflux Agent SDK - Run Function
+Python SDK for executing tasks with Codynflux Agent programmatically.
 """
 
 import asyncio
@@ -12,10 +12,10 @@ from typing import Any, Dict, Optional
 from dotenv import load_dotenv
 from rich.console import Console
 
-# Import the necessary components from the main trae_agent package
-from trae_agent.agent import TraeAgent
-from trae_agent.utils.cli_console import CLIConsole
-from trae_agent.utils.config import Config, load_config
+# Import the necessary components from the main codynflux_agent package
+from codynflux_agent.agent import CodynfluxAgent
+from codynflux_agent.utils.cli_console import CLIConsole
+from codynflux_agent.utils.config import Config, load_config
 
 # Load environment variables
 _ = load_dotenv()
@@ -23,8 +23,8 @@ _ = load_dotenv()
 console = Console()
 
 
-class TraeAgentSDK:
-    """SDK class for Trae Agent operations."""
+class CodynfluxAgentSDK:
+    """SDK class for Codynflux Agent operations."""
 
     def __init__(self, config: Optional[Config] = None):
         """
@@ -37,21 +37,21 @@ class TraeAgentSDK:
         self.agent = None
         self.cli_console = None
 
-    def create_agent(self, config: Config) -> TraeAgent:
+    def create_agent(self, config: Config) -> CodynfluxAgent:
         """
-        Create a Trae Agent with the specified configuration.
+        Create a Codynflux Agent with the specified configuration.
 
         Args:
             config: Agent configuration
 
         Returns:
-            TraeAgent object
+            CodynfluxAgent object
 
         Raises:
             Exception: If agent creation fails
         """
         try:
-            agent = TraeAgent(config)
+            agent = CodynfluxAgent(config)
             return agent
         except Exception as e:
             console.print(f"[red]Error creating agent: {e}[/red]")
@@ -69,12 +69,12 @@ class TraeAgentSDK:
         max_steps: Optional[int] = None,
         working_dir: Optional[str] = None,
         must_patch: bool = False,
-        config_file: str = "trae_config.json",
+        config_file: str = "codynflux_config.json",
         trajectory_file: Optional[str] = None,
         verbose: bool = True,
     ) -> Dict[str, Any]:
         """
-        Run a task using Trae Agent.
+        Run a task using Codynflux Agent.
 
         Args:
             task: The task description or path to a file containing the task

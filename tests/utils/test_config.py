@@ -4,9 +4,9 @@
 import unittest
 from unittest.mock import patch
 
-from trae_agent.utils.anthropic_client import AnthropicClient
-from trae_agent.utils.config import Config, ModelParameters
-from trae_agent.utils.openai_client import OpenAIClient
+from codynflux_agent.utils.anthropic_client import AnthropicClient
+from codynflux_agent.utils.config import Config, ModelParameters
+from codynflux_agent.utils.openai_client import OpenAIClient
 
 
 class TestConfigBaseURL(unittest.TestCase):
@@ -107,7 +107,7 @@ class TestConfigBaseURL(unittest.TestCase):
             "https://custom-openrouter.example.com/api/v1",
         )
 
-    @patch("trae_agent.utils.openai_client.openai.OpenAI")
+    @patch("codynflux_agent.utils.openai_client.openai.OpenAI")
     def test_openai_client_with_custom_base_url(self, mock_openai):
         model_params = ModelParameters(
             model="gpt-4o",
@@ -128,7 +128,7 @@ class TestConfigBaseURL(unittest.TestCase):
         )
         self.assertEqual(client.base_url, "https://custom-openai.example.com/v1")
 
-    @patch("trae_agent.utils.anthropic_client.anthropic.Anthropic")
+    @patch("codynflux_agent.utils.anthropic_client.anthropic.Anthropic")
     def test_anthropic_client_base_url_attribute_set(self, mock_anthropic):
         model_params = ModelParameters(
             model="claude-sonnet-4-20250514",
@@ -146,7 +146,7 @@ class TestConfigBaseURL(unittest.TestCase):
 
         self.assertEqual(client.base_url, "https://custom-anthropic.example.com")
 
-    @patch("trae_agent.utils.anthropic_client.anthropic.Anthropic")
+    @patch("codynflux_agent.utils.anthropic_client.anthropic.Anthropic")
     def test_anthropic_client_with_custom_base_url(self, mock_anthropic):
         model_params = ModelParameters(
             model="claude-sonnet-4-20250514",

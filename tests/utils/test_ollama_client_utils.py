@@ -12,9 +12,9 @@ WARNING: This Ollama test should not be used in the GitHub Actions workflow, as 
 import os
 import unittest
 
-from trae_agent.utils.config import ModelParameters
-from trae_agent.utils.llm_basics import LLMMessage
-from trae_agent.utils.ollama_client import OllamaClient
+from codynflux_agent.utils.config import ModelParameters
+from codynflux_agent.utils.llm_basics import LLMMessage
+from codynflux_agent.utils.ollama_client import OllamaClient
 
 TEST_MODEL = "qwen3:4b"
 

@@ -1,15 +1,15 @@
-# Trae Agent
+# Codynflux Agent
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
  ![Alpha]( https://img.shields.io/badge/Status-Alpha-red)
  [![Pre-commit](https://github.com/bytedance/trae-agent/actions/workflows/pre-commit.yml/badge.svg)](https://github.com/bytedance/trae-agent/actions/workflows/pre-commit.yml)
  [![Unit Tests](https://github.com/bytedance/trae-agent/actions/workflows/unit-test.yml/badge.svg)](https://github.com/bytedance/trae-agent/actions/workflows/unit-test.yml)
 
-**Trae Agent** is an LLM-based agent for general purpose software engineering tasks. It provides a powerful CLI interface that can understand natural language instructions and execute complex software engineering workflows using various tools and LLM providers.
+**Codynflux Agent** is an LLM-based agent for general purpose software engineering tasks. It provides a powerful CLI interface that can understand natural language instructions and execute complex software engineering workflows using various tools and LLM providers.
 
-**Project Status:** The project is still being actively developed. Please refer to [docs/roadmap.md](docs/roadmap.md) and [CONTRIBUTING](CONTRIBUTING.md) if you are willing to help us improve Trae Agent.
+**Project Status:** The project is still being actively developed. Please refer to [docs/roadmap.md](docs/roadmap.md) and [CONTRIBUTING](CONTRIBUTING.md) if you are willing to help us improve Codynflux Agent.
 
-**Difference with Other CLI Agents:** Trae Agent offers a transparent, modular architecture that researchers and developers can easily modify, extend, and analyze, making it an ideal platform for **studying AI agent architectures, conducting ablation studies, and developing novel agent capabilities**. This ***research-friendly design*** enables the academic and open-source communities to contribute to and build upon the foundational agent framework, fostering innovation in the rapidly evolving field of AI agents.
+**Difference with Other CLI Agents:** Codynflux Agent offers a transparent, modular architecture that researchers and developers can easily modify, extend, and analyze, making it an ideal platform for **studying AI agent architectures, conducting ablation studies, and developing novel agent capabilities**. This ***research-friendly design*** enables the academic and open-source communities to contribute to and build upon the foundational agent framework, fostering innovation in the rapidly evolving field of AI agents.
 
 ## ✨ Features
 
@@ -20,6 +20,8 @@
 - 📊 **Trajectory Recording**: Detailed logging of all agent actions for debugging and analysis
 - ⚙️ **Flexible Configuration**: JSON-based configuration with environment variable support
 - 🚀 **Easy Installation**: Simple pip-based installation
+- 📋 **DTDD Workflow**: Document-Driven Development methodology for systematic software engineering
+- 🔄 **Six-Agent Coordination System**: Advanced multi-agent architecture for complex task processing
 
 ## 🚀 Quick Start
 
@@ -28,14 +30,14 @@
 We strongly recommend using [uv](https://docs.astral.sh/uv/) to setup the project.
 
 ```bash
-git clone https://github.com/bytedance/trae-agent.git
-cd trae-agent
+git clone https://github.com/bytedance/codynflux-agent.git
+cd codynflux-agent
 make install
 ```
 
 ### Setup API Keys
 
-We recommend to configure Trae Agent using the config file.
+We recommend to configure Codynflux Agent using the config file.
 
 You can also set your API keys as environment variables:
 
@@ -70,48 +72,211 @@ Although you can pass your API key directly using the `api_key` argument, we sug
 
 ```bash
 # Run a simple task
-trae-cli run "Create a hello world Python script"
+codynflux-cli run "Create a hello world Python script"
 
 # Run with Doubao
-trae-cli run "Create a hello world Python script" --provider doubao --model doubao-seed-1.6
+codynflux-cli run "Create a hello world Python script" --provider doubao --model doubao-seed-1.6
 
 # Run with Google Gemini
-trae-cli run "Create a hello world Python script" --provider google --model gemini-2.5-flash
+codynflux-cli run "Create a hello world Python script" --provider google --model gemini-2.5-flash
+
+# Run with DTDD (Document-Driven Development) workflow
+codynflux-cli run "Implement user authentication system" --dtdd-mode
 ```
+
+## 📋 DTDD (Document-Driven Development) Workflow
+
+Codynflux Agent features a comprehensive DTDD methodology that emphasizes systematic documentation before implementation. This approach ensures higher quality, reduced risks, and better maintainability.
+
+### DTDD 4-Phase Approach
+
+#### Phase 1: PRD (Product Requirements Document)
+- Detailed product functional requirements
+- Technical architecture planning
+- System design concepts
+- Technology selection decisions
+
+#### Phase 2: Sequence Diagrams
+- System component interactions and sequence
+- Data flow and processing steps
+- Timing relationships and dependencies
+- Error handling flows
+
+#### Phase 3: Class Diagrams
+- Class structure design
+- Object relationships and associations
+- Inheritance and composition relationships
+- Interface definitions and implementations
+
+#### Phase 4: Test Planning
+- Unit test planning and structure
+- Integration test design
+- Acceptance test standards
+- Performance test scenarios
+
+### Using DTDD Mode
+
+```bash
+# Enable DTDD workflow for systematic development
+codynflux-cli run "Build a REST API for user management" --dtdd-mode
+
+# DTDD mode with specific configuration
+codynflux-cli run "Create a microservice architecture" --dtdd-mode --provider anthropic --model claude-sonnet-4-20250514
+```
+
+When DTDD mode is enabled, the agent will:
+1. Generate comprehensive documentation first
+2. Create visual diagrams for system design
+3. Plan detailed test strategies
+4. Only then proceed with implementation
+
+## 🔄 Six-Agent Coordination System
+
+Codynflux Agent features an advanced multi-agent architecture that coordinates six specialized agents for complex task processing. This system follows a systematic workflow pattern that ensures thorough analysis, reliable reproduction, effective execution, and continuous improvement.
+
+### Six-Agent Architecture
+
+The system consists of six specialized agents, each with distinct responsibilities:
+
+#### 1. Commander (指揮官)
+- **Role**: System coordination and overall workflow management
+- **Responsibilities**: 
+  - Receives user input and interprets requirements
+  - Coordinates communication between agents
+  - Provides final results to users
+  - Manages feedback loops and system state
+
+#### 2. Observer (觀察者)
+- **Role**: Information gathering and system state monitoring
+- **Responsibilities**:
+  - Gathers relevant information from the environment
+  - Monitors system states and conditions
+  - Provides observational data to analysts
+  - Tracks changes and system behavior
+
+#### 3. Analyst (分析者)
+- **Role**: Data analysis and pattern recognition
+- **Responsibilities**:
+  - Analyzes observational data and identifies patterns
+  - Performs root cause analysis
+  - Generates insights and recommendations
+  - Feeds analysis results to reproducers
+
+#### 4. Reproducer (再現者)
+- **Role**: Problem reproduction and verification
+- **Responsibilities**:
+  - Reproduces identified issues and scenarios
+  - Creates test cases and validation scenarios
+  - Verifies problem conditions
+  - Ensures consistent reproduction for executors
+
+#### 5. Executor (執行者)
+- **Role**: Solution implementation and execution
+- **Responsibilities**:
+  - Implements solutions based on analysis and reproduction
+  - Executes fixes and improvements
+  - Provides implementation feedback
+  - Handles actual code/system changes
+
+#### 6. Designer (設計者)
+- **Role**: System design and optimization
+- **Responsibilities**:
+  - Designs improvements and optimizations
+  - Provides architectural guidance
+  - Suggests best practices and patterns
+  - Validates design decisions
+
+### Agent Workflow Pattern
+
+The agents follow a systematic workflow with feedback loops:
+
+```
+User Input → Commander → Observer → Analyst → Reproducer → Executor
+                ↑                                              ↓
+                ← Designer ← (Improvement Feedback) ← ← ← ← ← ←
+```
+
+1. **Initial Processing**: Commander receives user input and initiates the workflow
+2. **Observation Phase**: Observer gathers relevant information and system state
+3. **Analysis Phase**: Analyst processes observations and identifies patterns
+4. **Reproduction Phase**: Reproducer creates test cases and verifies conditions
+5. **Execution Phase**: Executor implements solutions and executes changes
+6. **Feedback Loop**: If improvements are needed, Designer provides optimization guidance
+7. **Final Results**: Commander synthesizes results and provides final output
+
+### Using Multi-Agent Mode
+
+```bash
+# Enable multi-agent coordination for complex tasks
+codynflux-cli run "Analyze and optimize the entire codebase" --multi-agent-mode
+
+# Multi-agent mode with specific configuration
+codynflux-cli run "Debug complex system issues" --multi-agent-mode --provider anthropic --model claude-sonnet-4-20250514
+
+# Combine with DTDD for comprehensive development
+codynflux-cli run "Design and implement microservices" --multi-agent-mode --dtdd-mode
+```
+
+### Six-Agent System Benefits
+
+- **Systematic Approach**: Each agent specializes in specific aspects of problem-solving
+- **Thorough Analysis**: Multi-perspective analysis ensures comprehensive understanding
+- **Reliable Reproduction**: Dedicated reproduction phase ensures consistent issue identification
+- **Quality Execution**: Specialized execution with feedback loops ensures high-quality implementations
+- **Continuous Improvement**: Designer feedback loop enables ongoing optimization
+- **Complex Problem Solving**: Coordinated agents can tackle problems requiring diverse expertise
+- **Fault Tolerance**: Multi-agent redundancy provides robustness against individual agent failures
+
+### DTDD Benefits
+
+- **Risk Reduction**: Identify potential issues early through detailed planning
+- **Improved Efficiency**: Clear roadmap reduces rework and confusion
+- **Quality Assurance**: Comprehensive testing strategy ensures reliable software
+- **Team Collaboration**: Standardized documentation facilitates communication
+- **Maintainability**: Detailed documentation aids future development
 
 ## 📖 Usage
 
 ### Command Line Interface
 
-The main entry point is the `trae` command with several subcommands:
+The main entry point is the `codynflux` command with several subcommands:
 
-#### `trae run` - Execute a Task
+#### `codynflux run` - Execute a Task
 
 ```bash
 # Basic task execution
-trae-cli run "Create a Python script that calculates fibonacci numbers"
+codynflux-cli run "Create a Python script that calculates fibonacci numbers"
 
 # With specific provider and model
-trae-cli run "Fix the bug in main.py" --provider anthropic --model claude-sonnet-4-20250514
+codynflux-cli run "Fix the bug in main.py" --provider anthropic --model claude-sonnet-4-20250514
 
 # Using OpenRouter with any supported model
-trae-cli run "Optimize this code" --provider openrouter --model "openai/gpt-4o"
-trae-cli run "Add documentation" --provider openrouter --model "anthropic/claude-3-5-sonnet"
+codynflux-cli run "Optimize this code" --provider openrouter --model "openai/gpt-4o"
+codynflux-cli run "Add documentation" --provider openrouter --model "anthropic/claude-3-5-sonnet"
 
 # Using Google Gemini
-trae-cli run "Implement a data parsing function" --provider google --model gemini-2.5-pro
+codynflux-cli run "Implement a data parsing function" --provider google --model gemini-2.5-pro
 
 # With custom working directory
-trae-cli run "Add unit tests for the utils module" --working-dir /path/to/project
+codynflux-cli run "Add unit tests for the utils module" --working-dir /path/to/project
 
 # Save trajectory for debugging
-trae-cli run "Refactor the database module" --trajectory-file debug_session.json
+codynflux-cli run "Refactor the database module" --trajectory-file debug_session.json
 
 # Force to generate patches
-trae-cli run "Update the API endpoints" --must-patch
+codynflux-cli run "Update the API endpoints" --must-patch
+
+# Enable DTDD workflow for comprehensive development
+codynflux-cli run "Design and implement authentication system" --dtdd-mode
+
+# Use Multi-Agent Coordination System for complex tasks
+codynflux-cli run "Analyze and fix performance issues" --multi-agent-mode
+
+# Combine DTDD with specific configuration
+codynflux-cli run "Build microservices architecture" --dtdd-mode --provider anthropic --working-dir /path/to/project
 ```
 
-#### `trae interactive` - Interactive Mode
+#### `codynflux interactive` - Interactive Mode
 
 ```bash
 # Start interactive session
@@ -129,7 +294,7 @@ In interactive mode, you can:
 - Use `clear` to clear the screen
 - Use `exit` or `quit` to end the session
 
-#### `trae show-config` - Configuration Status
+#### `codynflux show-config` - Configuration Status
 
 ```bash
 trae-cli show-config
@@ -140,7 +305,7 @@ trae-cli show-config --config-file my_config.json
 
 ### Configuration
 
-Trae Agent uses a JSON configuration file for settings. Please refer to the `trae_config.json` file in the root directory for the detailed configuration structure.
+Codynflux Agent uses a JSON configuration file for settings. Please refer to the `codynflux_config.json` file in the root directory for the detailed configuration structure.
 
 **WARNING:**
 For Doubao users, please use the following base_url.
@@ -157,19 +322,19 @@ base_url=https://ark.cn-beijing.volces.com/api/v3/
 
 ```bash
 # Use GPT-4 through OpenRouter
-trae-cli run "Write a Python script" --provider openrouter --model "openai/gpt-4o"
+codynflux-cli run "Write a Python script" --provider openrouter --model "openai/gpt-4o"
 
 # Use Claude through OpenRouter
-trae-cli run "Review this code" --provider openrouter --model "anthropic/claude-3-5-sonnet"
+codynflux-cli run "Review this code" --provider openrouter --model "anthropic/claude-3-5-sonnet"
 
 # Use Gemini through OpenRouter
-trae-cli run "Generate docs" --provider openrouter --model "google/gemini-pro"
+codynflux-cli run "Generate docs" --provider openrouter --model "google/gemini-pro"
 
 # Use Gemini directly
-trae-cli run "Analyze this dataset" --provider google --model gemini-2.5-flash
+codynflux-cli run "Analyze this dataset" --provider google --model gemini-2.5-flash
 
 # Use Qwen through Ollama
-trae-cli run "Comment this code" --provider ollama --model "qwen3"
+codynflux-cli run "Comment this code" --provider ollama --model "qwen3"
 ```
 
 **Popular OpenRouter Models:**
@@ -192,21 +357,21 @@ trae-cli run "Comment this code" --provider ollama --model "qwen3"
 
 ## 🛠️ Available Tools
 
-Trae Agent provides a comprehensive toolkit for file editing, bash execution, structured thinking, task completion, and JSON manipulation, with new tools actively being developed and existing ones continuously enhanced.
+Codynflux Agent provides a comprehensive toolkit for file editing, bash execution, structured thinking, task completion, and JSON manipulation, with new tools actively being developed and existing ones continuously enhanced.
 
 For detailed information about all available tools and their capabilities, see [docs/tools.md](docs/tools.md).
 
 ## 📊 Trajectory Recording
 
-Trae Agent automatically records detailed execution trajectories for debugging and analysis:
+Codynflux Agent automatically records detailed execution trajectories for debugging and analysis:
 
 ```bash
 # Auto-generated trajectory file
-trae-cli run "Debug the authentication module"
+codynflux-cli run "Debug the authentication module"
 # Saves to: trajectory_20250612_220546.json
 
 # Custom trajectory file
-trae-cli run "Optimize the database queries" --trajectory-file optimization_debug.json
+codynflux-cli run "Optimize the database queries" --trajectory-file optimization_debug.json
 ```
 
 Trajectory files contain:
@@ -256,7 +421,7 @@ For detailed contribution guidelines, please refer to [CONTRIBUTING.md](CONTRIBU
 
 ```bash
 # Try setting PYTHONPATH
-PYTHONPATH=. trae-cli run "your task"
+PYTHONPATH=. codynflux-cli run "your task"
 ```
 
 **API Key Issues:**
@@ -293,4 +458,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-We thank Anthropic for building the [anthropic-quickstart](https://github.com/anthropics/anthropic-quickstarts) project that served as a valuable reference for the tool ecosystem.
+We extend our heartfelt gratitude to the original **Trae Agent** project and its contributors for creating this foundational framework. This project builds upon their excellent work and innovative agent architecture.
+
+Special thanks to:
+- The Trae Agent development team for their pioneering work in LLM-based software engineering agents
+- Anthropic for building the [anthropic-quickstart](https://github.com/anthropics/anthropic-quickstarts) project that served as a valuable reference for the tool ecosystem
+- All contributors who helped shape the original Trae Agent into a powerful, research-friendly platform

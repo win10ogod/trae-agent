@@ -3,8 +3,8 @@
 
 import unittest
 
-from trae_agent.tools.base import ToolCallArguments
-from trae_agent.tools.bash_tool import BashTool
+from codynflux_agent.tools.base import ToolCallArguments
+from codynflux_agent.tools.bash_tool import BashTool
 
 
 class TestBashTool(unittest.IsolatedAsyncioTestCase):
